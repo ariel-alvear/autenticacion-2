@@ -28,6 +28,8 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
 
+    @story.user_id = current_user.id
+
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
