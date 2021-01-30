@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /stories
   # GET /stories.json
@@ -14,6 +15,7 @@ class StoriesController < ApplicationController
 
   # GET /stories/new
   def new
+    authenticate_user!
     @story = Story.new
   end
 
